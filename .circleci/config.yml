@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   run-script:
     machine:
-      image:
+      image: ubuntu-2004:202101-01
     steps:
       - checkout
       - run:
