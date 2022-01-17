@@ -11,7 +11,7 @@ jobs:
           command: |
             docker-compose up -d
             # ideally, check MariaDB is ready via dockerize, or a similar tool
-            sleep 10
+            sleep 30
       - run:
           name: Run SQL script against DB
           command: |
