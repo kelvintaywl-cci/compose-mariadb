@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  run-script:
+    machine:
+      image:
+    steps:
+      - checkout
+      - run:
+          name: Spin up services
+          command: |
+            docker-compose up -d
+            # ideally, check MariaDB is ready via dockerize, or a similar tool
+            sleep 10
+      - run:
+          name: Run SQL script against DB
+          command: |
+            docker exec -i ts-db sh -c 'exec mysql -D"shopware" -u"root" -p"test"' <  test.sql
+
+workflows:
+  main:
+    jobs:
+      - run-script
