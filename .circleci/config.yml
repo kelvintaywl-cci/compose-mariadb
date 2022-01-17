@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run SQL script against DB
           command: |
-            docker exec -i ts-db sh -c 'exec mysql -D"shopware" -u"root" -p"test"' <  test.sql
+            docker exec -i ts-db sh -c 'exec mysql -D"shopware" -u"admin" -p"secret!"' <  test.sql
 
 workflows:
   main:
